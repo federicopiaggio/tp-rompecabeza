@@ -47,6 +47,23 @@ li::before {
 .texto-centrado {
   text-align: center;
 }
+#juego {
+  width: 600px;
+  height: 600px; 
+
+}
+
+.pìezas, img{
+  box-sizing: border-box;
+  width: 33.33%; 
+  float: left;
+  border: #000 solid 0.5px;
+}
+
+
+ #clearpieza{
+   clear: both;
+ }
 
 #juego div {
   text-align: center;
