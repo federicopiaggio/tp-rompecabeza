@@ -23,24 +23,47 @@ Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
     for(i=0; i< instrucciones.length; i++){
      
-      mostrarInstruccionEnLista(instrucciones[i],idLista);
+      mostrarInstruccionEnLista(instrucciones[i]);
     }
 }
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
+function mostrarUltimoMovimiento(direccion) {
+  movimientos.push(direccion);
+  actualizarUltimoMovimiento(direccion);
+}
 
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
-function chequearSiGano() {
+function chequearSiGano(grilla) {
+  var chequeo = 1;
+  var bool =true;
+  for(var i = 0; i < grilla.length; i ++){
+    for(var j = 0; j < grilla[i].length; j ++){
+      var actual = grilla[i][j];
+          if(actual != chequeo){
+            bool = false;    
+        }
+      chequeo++;     
+      }     
+    }
+    return bool;
+  }
+
+
+
     //COMPLETAR
-}
+
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
-function mostrarCartelGanador() {
-    //COMPLETAR
+function mostrarCartelGanador(chequearSiGano) { 
+  var check = chequearSiGano(grilla);
+  console.log(check);
+  if(check){
+    alert("Ganaste! Armaste a Beemo");
+  } 
 }
-
 /* Función que intercambia dos posiciones en la grilla.
 Pensar como intercambiar dos posiciones en un arreglo de arreglos. 
 Para que tengas en cuenta:
@@ -51,8 +74,21 @@ arreglo[0][0] = arreglo[1][2];
 En vez de intercambiar esos valores vamos a terminar teniendo en ambas posiciones el mismo valor.
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
+
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
     //COMPLETAR
+    
+    var f1 =filaPos1;
+    var c1 = columnaPos1;
+    var f2 =filaPos2;
+    var c2 = columnaPos2;
+    var num1 = grilla[f1,c1];
+    var num2 = grilla[f2,c2];
+    num1 = num2;
+    num2 = num1;
+    console.log(grilla);
+
+
 }
 
 // Actualiza la posición de la pieza vacía
@@ -65,6 +101,7 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 function posicionValida(fila, columna) {
     //COMPLETAR
 }
+
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición con otro elemento.
 Las direcciones están dadas por números que representa: arriba (38), abajo (40), izquierda (37), derecha (39) */
@@ -184,6 +221,7 @@ function actualizarUltimoMovimiento(direccion) {
 con idLista. Se crea un elemento li dinámicamente con el texto 
 pasado con el parámetro "instrucción". */
 function mostrarInstruccionEnLista(instruccion, idLista) {
+  idLista = "lista-instrucciones";
   var ul = document.getElementById(idLista);
   var li = document.createElement("li");
   li.textContent = instruccion;
