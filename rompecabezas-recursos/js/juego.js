@@ -36,7 +36,7 @@ function mostrarUltimoMovimiento(direccion) {
 
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
-function chequearSiGano(grilla) {
+function chequearSiGano() {
   var chequeo = 1;
   var bool =true;
   for(var i = 0; i < grilla.length; i ++){
@@ -75,20 +75,10 @@ En vez de intercambiar esos valores vamos a terminar teniendo en ambas posicione
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
 
-function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-    //COMPLETAR
-    
-    var f1 =filaPos1;
-    var c1 = columnaPos1;
-    var f2 =filaPos2;
-    var c2 = columnaPos2;
-    var num1 = grilla[f1,c1];
-    var num2 = grilla[f2,c2];
-    num1 = num2;
-    num2 = num1;
-    console.log(grilla);
-
-
+function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {   
+    var num1 = grilla[filaPos1][columnaPos1];
+    grilla[filaPos1][columnaPos1] = grilla[filaPos2][columnaPos2];
+    grilla[filaPos2][columnaPos2] = num1;
 }
 
 // Actualiza la posición de la pieza vacía
@@ -99,7 +89,11 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-    //COMPLETAR
+  var temp = true;
+  if(fila>=3 || columna>=3 ){
+    temp = false;
+  }
+  return temp;
 }
 
 

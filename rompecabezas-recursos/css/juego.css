@@ -54,6 +54,11 @@ li::before {
 
 }
 
+#imagen-objetivo{
+  width: 200px;
+  height: 200px;
+}
+
 .pìezas, img{
   box-sizing: border-box;
   width: 33.33%; 
