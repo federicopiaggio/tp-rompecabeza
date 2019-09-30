@@ -1,5 +1,5 @@
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = ["Armá rompecabezas","Mové las fichas","Vos podés"];
+var instrucciones = ["¡Ayudalo a Beemo!","Mové las fichas y armá su imagen","¡Vos podés!"];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 
@@ -57,10 +57,8 @@ function chequearSiGano() {
 
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
-function mostrarCartelGanador(chequearSiGano) { 
-  var check = chequearSiGano(grilla);
-  console.log(check);
-  if(check){
+function mostrarCartelGanador() { 
+  if(chequearSiGano()){
     alert("Ganaste! Armaste a Beemo");
   } 
 }
@@ -284,4 +282,4 @@ function iniciar() {
 }
 
 // Ejecutamos la función iniciar
-/* iniciar(); */
+iniciar();

@@ -10,9 +10,15 @@ ul {
   padding-left: 0;
   list-style: none;
 }
+
+h1{
+  text-align: center;
+}
+
 li {
   padding: 5px 0;
   animation: fadein 5s;
+  font-size: 0.9em;
 }
 li::before {
   content: "• ";
@@ -33,16 +39,19 @@ li::before {
   background: #FFF;
   padding: 30px;
   color: #000;
-
+  width: 40%;
 }
 
 .col-60 {
   background: #E84A5F;
+}
 
+h2{
+  font-size: 1.2em;
 }
 
 #flecha{
-  font-size: 60px;
+  font-size: 50px;
 }
 
 .texto-centrado {
@@ -59,11 +68,16 @@ li::before {
   height: 200px;
 }
 
-.piezas img{
+.piezas div{
+  width: 33.33%;
+  height: 33.33%;  
   box-sizing: border-box;
-  width: 33.33%; 
   float: left;
-  border: #000 solid 0.5px;
+  border: #000 solid 0.7px;
+}
+.piezas img{
+  width :100%;
+  
 }
 
 
