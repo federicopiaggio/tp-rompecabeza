@@ -59,7 +59,7 @@ li::before {
   height: 200px;
 }
 
-.pìezas, img{
+.piezas img{
   box-sizing: border-box;
   width: 33.33%; 
   float: left;

@@ -21,7 +21,7 @@ Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-ins
 Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
-    for(i=0; i< instrucciones.length; i++){
+    for(var i = 0; i< instrucciones.length; i++){
      
       mostrarInstruccionEnLista(instrucciones[i]);
     }
@@ -38,7 +38,7 @@ function mostrarUltimoMovimiento(direccion) {
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
   var chequeo = 1;
-  var bool =true;
+  var bool = true;
   for(var i = 0; i < grilla.length; i ++){
     for(var j = 0; j < grilla[i].length; j ++){
       var actual = grilla[i][j];
@@ -83,14 +83,15 @@ function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPo
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-    //COMPLETAR
+    filaVacia = nuevaFila;
+    columnaVacia = nuevaColumna;
 }
 
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
   var temp = true;
-  if(fila>=3 || columna>=3 ){
+  if( fila>2 || fila<0 || columna<0 || columna>2 ){
     temp = false;
   }
   return temp;
@@ -117,12 +118,17 @@ function moverEnDireccion(direccion) {
     
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
-    //COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia + 1;
+    
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
-    // COMPLETAR
+  
+    nuevaFilaPiezaVacia = filaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia - 1;
+    
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia. 
@@ -132,7 +138,7 @@ function moverEnDireccion(direccion) {
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-
+        mostrarUltimoMovimiento(direccion);
   //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
 
     }
@@ -278,4 +284,4 @@ function iniciar() {
 }
 
 // Ejecutamos la función iniciar
-iniciar();
+/* iniciar(); */
