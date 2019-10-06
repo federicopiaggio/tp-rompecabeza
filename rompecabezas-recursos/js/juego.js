@@ -21,8 +21,7 @@ Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-ins
 Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
-    for(var i = 0; i< instrucciones.length; i++){
-     
+    for(var i = 0; i< instrucciones.length; i++){     
       mostrarInstruccionEnLista(instrucciones[i]);
     }
 }
@@ -117,16 +116,13 @@ function moverEnDireccion(direccion) {
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
     nuevaFilaPiezaVacia = filaVacia;
-    nuevaColumnaPiezaVacia = columnaVacia + 1;
-    
+    nuevaColumnaPiezaVacia = columnaVacia - 1;   
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
-  
     nuevaFilaPiezaVacia = filaVacia;
-    nuevaColumnaPiezaVacia = columnaVacia - 1;
-    
+    nuevaColumnaPiezaVacia = columnaVacia + 1; 
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia. 
